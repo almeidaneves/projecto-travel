@@ -19,10 +19,13 @@ public class Travel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank
     private String orderNumber;
+
     @NotBlank
     private LocalDateTime startDate;
+    
     @NotBlank
     private LocalDateTime endDate;
 
