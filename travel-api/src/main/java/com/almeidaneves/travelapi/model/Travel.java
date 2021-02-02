@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -21,12 +22,18 @@ public class Travel implements Serializable {
     private Long id;
 
     @NotBlank
+    @Column(name="orderNumber")
+    @Size(max = 60)
     private String orderNumber;
 
     @NotBlank
+    @Column(name="startDate")
+    @Size(max = 60)
     private LocalDateTime startDate;
     
     @NotBlank
+    @Column(name="startDate")
+    @Size(max = 60)
     private LocalDateTime endDate;
 
 }
