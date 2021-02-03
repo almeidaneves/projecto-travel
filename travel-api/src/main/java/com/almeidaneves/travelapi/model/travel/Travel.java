@@ -2,6 +2,7 @@ package com.almeidaneves.travelapi.model.travel;
 
 import com.almeidaneves.travelapi.enumeration.TravelTypeEnum;
 import com.almeidaneves.travelapi.model.accout.Account;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,11 +42,13 @@ public class Travel implements Serializable {
     @NotBlank
     @Column(name="startDate")
     @Size(max = 60)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startDate;
     
     @NotBlank
     @Column(name="startDate")
     @Size(max = 60)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endDate;
 
     @NotBlank
