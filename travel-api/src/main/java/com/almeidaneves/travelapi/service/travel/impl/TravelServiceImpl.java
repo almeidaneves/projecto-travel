@@ -19,31 +19,34 @@ public class TravelServiceImpl implements TravelService {
 
     @Override
     public Travel save(Travel travel) {
-        return null;
+        return travelRepository.save(travel);
     }
 
     @Override
     public void deleteId(Long travelId) {
-
+        travelRepository.deleteById(travelId);
     }
 
     @Override
-    public Travel findById(Long Id) {
-        return null;
+    public Travel findById(Long id) {
+        return travelRepository.findById(id).
+                orElseThrow(()-> new IllegalArgumentException("Travel id ="+id+"not found"));
     }
 
     @Override
     public Optional<Travel> findByOrderNumber(String orderNumber) {
-        return Optional.empty();
+        return travelRepository.findByOrderNumber(orderNumber);
     }
 
     @Override
     public List<Travel> findAll() {
-        return null;
+        return travelRepository.findAll();
     }
 
     @Override
     public Page<Travel> findBetweenDates(LocalDateTime startDate, LocalDateTime endDate, Pageable pageable) {
-        return null;
+        return travelRepository.
+                findAllByStartDateGreaterThanEqualAndStartDateLessThanEqual
+                        (startDate, endDate, pageable);
     }
 }
