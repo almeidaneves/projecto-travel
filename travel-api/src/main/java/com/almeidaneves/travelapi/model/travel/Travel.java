@@ -1,6 +1,8 @@
 package com.almeidaneves.travelapi.model.travel;
 
 import com.almeidaneves.travelapi.enumeration.TravelTypeEnum;
+import com.almeidaneves.travelapi.exception.TravelGeneral;
+import com.almeidaneves.travelapi.exception.TravelResponse;
 import com.almeidaneves.travelapi.model.accout.Account;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -28,7 +30,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Table(name = "travel")
-public class Travel implements Serializable {
+public class Travel extends TravelGeneral {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,13 +42,13 @@ public class Travel implements Serializable {
     private String orderNumber;
 
     @NotBlank
-    @Column(name="startDate")
+    @Column(name="startDate" )
     @Size(max = 60)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startDate;
     
     @NotBlank
-    @Column(name="startDate")
+    @Column(name="endDate")
     @Size(max = 60)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endDate;

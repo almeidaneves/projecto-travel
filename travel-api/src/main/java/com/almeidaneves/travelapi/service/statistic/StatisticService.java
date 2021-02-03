@@ -19,12 +19,8 @@ public interface StatisticService {
      * Method that verifies if the statistics already exists in the database
      *
      * @author TestAlmeidaNeves
-     * @param sum
-     * @param avg
-     * @param max
-     * @param min
-     * @param count
+     * @param statistic
      * @return <code>Statistic</code> object
      */
-    public Statistic verifyIfStatisticsIsSame(BigDecimal sum, BigDecimal avg, BigDecimal max, BigDecimal min, Long count);
+    public Statistic verifyIfStatisticsIsSame(Statistic statistic);
 }

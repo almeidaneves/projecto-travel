@@ -4,18 +4,20 @@ import com.almeidaneves.travelapi.model.statistic.Statistic;
 import com.almeidaneves.travelapi.repository.statistic.StatisticRepository;
 import com.almeidaneves.travelapi.service.statistic.StatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-
+@Service
 public class StatisticServiceImpl implements StatisticService {
 
 
+    @Autowired
     private StatisticRepository statisticRepository;
 
-    @Autowired
-    public StatisticServiceImpl(StatisticRepository statisticRepository) {
+
+   /* public StatisticServiceImpl(StatisticRepository statisticRepository) {
         this.statisticRepository = statisticRepository;
-    }
+    }*/
 
     @Override
     public Statistic save(Statistic statistic) {
@@ -23,9 +25,8 @@ public class StatisticServiceImpl implements StatisticService {
     }
 
     @Override
-    public Statistic verifyIfStatisticsIsSame(BigDecimal sum, BigDecimal avg, BigDecimal max, BigDecimal min, Long count) {
-        return statisticRepository.verifyIfStatisticIsSame(sum,
-                avg, max, min, count).orElseThrow(
+    public Statistic verifyIfStatisticsIsSame(Statistic statistic) {
+        return statisticRepository.findBySum(statistic.getSum()).orElseThrow(
                 ()->new IllegalArgumentException("Already exists a " +
                         "statistic in the database whit the same parameters")
         );

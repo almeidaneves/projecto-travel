@@ -12,5 +12,6 @@ import java.util.Optional;
  */
 @Repository
 public interface StatisticRepository extends JpaRepository<Statistic, Long> {
-    Optional<Statistic> verifyIfStatisticIsSame(BigDecimal sum, BigDecimal avg, BigDecimal max, BigDecimal min, Long count);
+
+    Optional<Statistic> findBySum(BigDecimal statistic);
 }

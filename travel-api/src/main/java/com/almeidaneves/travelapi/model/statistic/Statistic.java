@@ -1,5 +1,8 @@
 package com.almeidaneves.travelapi.model.statistic;
 
+import com.almeidaneves.travelapi.exception.GeneralResponse;
+import com.almeidaneves.travelapi.exception.TravelGeneral;
+import com.almeidaneves.travelapi.exception.TravelResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +16,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "Statistics")
-public class Statistic implements Serializable {
+public class Statistic extends TravelGeneral {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,5 +41,6 @@ public class Statistic implements Serializable {
     @NotBlank
     @Column(name = "travel_count")
     private Long count;
+
 
 }

@@ -1,6 +1,8 @@
 package com.almeidaneves.travelapi.model.user;
 
 import com.almeidaneves.travelapi.enumeration.RoleEnum;
+import com.almeidaneves.travelapi.exception.TravelGeneral;
+import com.almeidaneves.travelapi.exception.TravelResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
-public class User implements Serializable {
+public class User extends TravelGeneral {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
